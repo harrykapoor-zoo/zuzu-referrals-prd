@@ -53,7 +53,7 @@ All active current members can refer under their effective policy. An employee c
 
 ## Invitation model
 
-**Selected for v1: one shareable personal link per member**, controlled by their configured referral allowance. No recipient name or contact is required from the referrer. Any eligible new recipient can redeem it while allowance remains. Attribute successful referrals and rewards using verified membership creation, not link clicks. The recipient supplies their name on the web landing page; that belongs to their join session, not the reusable link.
+**Selected for v1: one shareable personal link per member**, controlled by their configured referral allowance. No recipient name or contact is required from the referrer. Any eligible new recipient can redeem it while allowance remains. Attribute successful referrals at verified membership creation, not link clicks. V2 rewards use the separately configured qualifying event. The recipient supplies their name on the web landing page; that belongs to their join session, not the reusable link.
 
 Recipient-bound invitation issuance, contact uploads and reminders to people who have not engaged are out of scope for v1.
 
@@ -119,4 +119,13 @@ These are release acceptance cases. Attribution-switching and leaked-link defaul
 
 - Measure referral-link requests, invite opens, landing views, card changes, name-entry completion, iMessage handoffs, onboarding completion, successful referrals, failures by reason and activation; segment by referrer cohort, policy version and campaign. Proposed activation: invitee completes their first real task within seven days. Track campaign claims separately from referral success. The quota is consumed at membership creation, not task activation.
 
-**Before production:** confirm the proposed no-reset quota accounting, messaging identity handoff and campaign offer duration. Verify Neha’s identity before seeding a real #001 claim. Employee rewards remain a separate policy requiring approved amounts and activation criteria; this PRD does not implement payouts or automatic billing.
+**Before production:** confirm the proposed no-reset quota accounting, messaging identity handoff and campaign offer duration. Verify Neha’s identity before seeding a real #001 claim. Referral rewards are V2 only; V1 does not implement reward issuance or automatic billing.
+
+# V2 referral rewards
+
+**Out of scope for V1.**
+
+- **Recipients:** support rewards for both the referrer and referee, with separately configurable reward types and amounts.
+- **Reward trigger:** configurable qualifying event. Initial setting: the referee completes their **first successful transaction on zuzu**. Joining alone does not trigger a reward; pending, failed or cancelled transactions do not qualify.
+- **Issuance:** use the server-confirmed transaction event and verified referral attribution; issue each recipient’s reward once per eligible referral, including on event retries.
+- **Separate from quota:** referral allowance is still consumed when membership is created. Reward amounts and refund/reversal handling must be defined before V2 launches.
