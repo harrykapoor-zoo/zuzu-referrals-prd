@@ -50,3 +50,8 @@
 #claim-form label{display:block;font-size:12px;margin-bottom:10px}#invite-code{width:100%;border:1px solid var(--line);border-radius:6px;padding:14px;background:#fffaf4;font-size:14px}#claim-message{min-height:32px}
 
 .edition{cursor:default}.edition[hidden]{display:none!important}.tile-caption{min-width:0;flex:1}.tile-story{color:var(--muted);font-size:12px;line-height:1.5;margin:5px 0 0}.list .tile-caption{padding-right:8px}
+.tilt-shell,.tile-art{touch-action:pan-y pinch-zoom;perspective:950px;-webkit-user-select:none;user-select:none}
+.tilt-shell .card-art,.tile-art .card-art{pointer-events:none;-webkit-user-drag:none}
+.tilt-shell .member-card,.tile-art .member-card{transition:transform 90ms ease-out}
+.touch-tip{display:none}
+@media(pointer:coarse) and (prefers-reduced-motion:no-preference){.touch-tip{display:block;margin-top:8px;color:#674e4c;font-size:11px;letter-spacing:.035em;text-transform:none}}
